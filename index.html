@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body ng-app="hotels" ng-controller="hotelsController as hotel">
+    <div class="container">
+        <div class="box" ng-repeat="hot in hotel.items">
+            <img ng-src="{{hot.imageUrl}}">
+            <ul>
+                <li>Name : {{hot.name}}</li>
+                <li>Rating : {{count}}</li>
+                <li>Description : {{hot.description}}
+                    <span ng-if="count > 3" ng-style="{'background-color': 'green'}"> The food is very Tasty</span>
+                    <span ng-if="count < 3" ng-style="{'background-color': 'red'}"> This Place is not Good</span>
+                </li>
+                <button ng-click="count = count + 1" ng-init="count=3">Increase</button>
+                <button ng-click="count = count - 1">Decrease</button>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/hotelsController.js"></script>
+    <script src="js/services/hotelsService.js"></script>
+
+</body>
+
+</html>
